@@ -16,6 +16,7 @@ crt:
 	$(GCC_$(ARCH)) -o math.o $(HFOS_SW)/lib/math.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o malloc.o $(HFOS_SW)/lib/malloc.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o hf-unit.o $(HFOS_SW)/lib/hf-unit.c -I$(HFOS_SW)/include
+	#$(GCC_$(ARCH)) -o string.o $(HFOS_SW)/lib/string.c -I$(HFOS_SW)/include
 	
 
 link:
