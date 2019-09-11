@@ -1,5 +1,6 @@
 # mude somente essa linha abaixo para apontar p o diretorio do hellfireos
-HFOS_ROOT=/home/14104158/Desktop/hf-risc-st/
+
+HFOS_ROOT=/home/13105126/Desktop/T1/hf-risc-st
 HFOS_SW=$(HFOS_ROOT)/software/
 SIMDIR = $(HFOS_SW)/tools/sim/hf_riscv_sim/
 
