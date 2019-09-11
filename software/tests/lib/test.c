@@ -8,6 +8,7 @@ int32_t strcmp(const int8_t *s1, const int8_t *s2);
 
 // list of individual tests
 void strcmp1_test();
+void strcmp2_test();
 //void pow2_test();
 //void pow3_test();
 //void pow5_test();
@@ -20,6 +21,7 @@ void strcmp1_test();
 // main test
 void hfunit_run_tests(){
 	strcmp1_test();
+    strcmp2_test();
     //pow2_test();
     //pow3_test();
     //pow5_test();
@@ -30,8 +32,17 @@ void hfunit_run_tests(){
 
 // place here a nice description for each test
 void strcmp1_test(){
-    char  v[5] = "oi", v2[5] = "hello";
+    char  v[5] = "abc", v2[5] = "abd";
 	//int32_t strcmp(v,v2);
-	int expected = strcmp(v,v2);
-	hfunit_comp_vector(v, v2,expected, "strcmp(v,v2)");
+    int expected = -1;
+	int result = strcmp(v,v2);
+	hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(v,v2)");
+}
+
+void strcmp2_test(){
+    char  v[5] = "OI", v2[5] = "OI";
+    //int32_t strcmp(v,v2);
+    int expected = 0;
+    int result = strcmp(v,v2);
+    hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(v,v2)");
 }
