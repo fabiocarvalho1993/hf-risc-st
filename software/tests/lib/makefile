@@ -1,5 +1,5 @@
 # mude somente essa linha abaixo para apontar p o diretorio do hellfireos
-HFOS_ROOT=/home/fabio/Desktop/Teste/hf-risc-st/
+HFOS_ROOT=/home/pietro/Documentos/hf-risc-st/
 HFOS_SW=$(HFOS_ROOT)/software/
 SIMDIR = $(HFOS_SW)/tools/sim/hf_riscv_sim/
 
@@ -16,7 +16,7 @@ crt:
 	$(GCC_$(ARCH)) -o math.o $(HFOS_SW)/lib/math.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o malloc.o $(HFOS_SW)/lib/malloc.c -I$(HFOS_SW)/include
 	$(GCC_$(ARCH)) -o hf-unit.o $(HFOS_SW)/lib/hf-unit.c -I$(HFOS_SW)/include
-	#$(GCC_$(ARCH)) -o string.o $(HFOS_SW)/lib/string.c -I$(HFOS_SW)/include
+	#$(GCC_$(ARCH)) -o stdio.o $(HFOS_SW)/lib/stdio.c -I$(HFOS_SW)/include
 	
 
 link:
