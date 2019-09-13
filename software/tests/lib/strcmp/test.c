@@ -1,3 +1,13 @@
+/*Teste--------------------Esperado----------Resultado
+strcmp(v[abc],v2[abd])        -1              -1 PASSED
+
+strcmp(v[ab],v2[ab])           0               0 PASSED
+
+strcmp(v[abd],v2[abc])         1               1 PASSED
+
+strcmp(v["■"],v2[""])          0               226 FAILED
+
+strcmp(v2[""],v["■"])          0              -226 FAILED*/
 #include <hf-risc.h>
 #include <hf-unit.h>
 //#include <string.h>

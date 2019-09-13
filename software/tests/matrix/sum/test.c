@@ -1,8 +1,15 @@
-/*
-This matrix lib can work with 3 different types: fixed, float, and double.
-just change the variable MATRIX_TYPE in the makefile
-*/
+/*Teste-------Esperado-----------Resultado
+sum(M1, M1)     M5=M2             PASSED
 
+sum(M2, M1)     M5=M2             PASSED
+
+sum(M1, M2)     M5=M2              ERRO
+
+sum(M2, M1)     M5=M0             PASSED
+
+sum(M1, M2)     M5=M2              ERRO
+
+sum(M1, M2)     M5=M2              ERRO*/
 #include <mat_type.h> // this include define the type of the matrix
 #include <matrix.h>   // the functions under test are defined here
 #include <hf-risc.h>
@@ -16,6 +23,8 @@ void sum_matrix_teste1();
 void sum_matrix_teste2();
 void sum_matrix_teste3();
 void sum_matrix_teste0();
+void sum_matrix_teste4();
+void sum_matrix_teste5();
 
 /*Teste de comparação entre a matriz resultante e a matrix esperada*/
 void matrix_compare(struct Matrix  *m1/*matix resultado*/, struct Matrix  *m2/*matrix experada*/, int tam){
@@ -52,6 +61,8 @@ void hfunit_run_tests(){
 	sum_matrix_teste2();
 	sum_matrix_teste3();
 	sum_matrix_teste0();
+	sum_matrix_teste4();
+	sum_matrix_teste5();
 
 }
 
@@ -131,6 +142,42 @@ typ_var val1[16] = {val(-1),val(-2),val(-3),val(-4),val(-5),val(-6),val(-7),val(
 typ_var val2[16] = {val(1),val(2),val(3),val(4),val(5),val(6),val(7),val(8),val(9),val(10),val(11),val(12),val(13),val(14),val(15),val(16)};
 typ_var val0[16] = {val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0)};
 M1 = set_values(4, 4, val1);
+M0 = set_values(4, 4, val0);
+M2 = set_values(4, 4, val2);
+
+M5 = sum(M1, M2);
+printf("sum(M1,M2)\n");
+matrix_compare(&M5,&M0,4);
+
+}
+
+void sum_matrix_teste4() {
+/*teste com matrizes com tamanhos de linhas e colunas diferentes;
+teste pra dar erro;*/
+struct Matrix M1,M2,M5,M0;
+
+typ_var val1[16] = {val(-1),val(-2),val(-3),val(-4),val(-5),val(-6),val(-7),val(-8),val(-9),val(-10),val(-11),val(-12),val(-13),val(-14),val(-15),val(-16)};
+typ_var val2[16] = {val(1),val(2),val(3),val(4),val(5),val(6),val(7),val(8),val(9),val(10),val(11),val(12),val(13),val(14),val(15),val(16)};
+typ_var val0[16] = {val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0)};
+M1 = set_values(4, 4, val1);
+M0 = set_values(8, 2, val0);
+M2 = set_values(4, 4, val2);
+
+M5 = sum(M1, M2);
+printf("sum(M1,M2)\n");
+matrix_compare(&M5,&M0,4);
+
+}
+
+void sum_matrix_teste5() {
+/*teste com matrizes com tamanhos de linhas e colunas diferentes;
+teste pra dar erro;*/
+struct Matrix M1,M2,M5,M0;
+
+typ_var val1[16] = {val(-1),val(-2),val(-3),val(-4),val(-5),val(-6),val(-7),val(-8),val(-9),val(-10),val(-11),val(-12),val(-13),val(-14),val(-15),val(-16)};
+typ_var val2[16] = {val(1),val(2),val(3),val(4),val(5),val(6),val(7),val(8),val(9),val(10),val(11),val(12),val(13),val(14),val(15),val(16)};
+typ_var val0[16] = {val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0),val(0)};
+M1 = set_values(8, 2, val1);
 M0 = set_values(4, 4, val0);
 M2 = set_values(4, 4, val2);
 

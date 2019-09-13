@@ -1,3 +1,11 @@
+/*Teste----------Esperado-----------Resultado
+strchr(&v,'a')       4                  4 PASSED
+
+strchr(&v,'M')       0                  0 PASSED
+
+strchr(&v,'is')      29                 9 FAILED
+
+strchr(&v,'A')       195               27 FAILED*/
 #include <hf-risc.h>
 #include <hf-unit.h>
 //#include <string.h>
