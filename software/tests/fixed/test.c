@@ -8,12 +8,7 @@ extern int executed_tests;
 
 // function under test 
 fixed_t fix_asin(fixed_t expected);
-fixed_t fix_acos(fixed_t expected);
-fixed_t fix_sinh(fixed_t arg);
-fixed_t fix_tan(fixed_t rad);
 fixed_t fix_rad(fixed_t deg);
-
-
 // list of individual tests
 void fix_asin_test();
 void fix_asin_test_2();
@@ -22,6 +17,7 @@ void fix_asin_test_3();
 void fix_rad_test();
 void fix_rad_test_2();
 void fix_rad_test_3();
+void fix_rad_test_4();
 // main test
 void hfunit_run_tests(){
 fix_asin_test();
@@ -31,47 +27,90 @@ fix_asin_test_3();
 fix_rad_test();
 fix_rad_test_2();
 fix_rad_test_3();
+fix_rad_test_4();
 
 }
 
 void fix_asin_test()
 {
-    fixed_t expected=1.57079633;
-    fixed_t receive=fix_asin(2.0);
-    
-    ASSERT_EQUALS_FIXED(receive,expected,"fix_asin(2.0)");
+    fixed_t expected=fix_val(1.57079633);
+    fixed_t v=fix_val(1.0);
+    fixed_t receive=fix_asin(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+    hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_asin(1.0)");
 }
 void fix_asin_test_2()
 {
-    fixed_t expected=1.57079633;
-    fixed_t receive=fix_asin(1.0);
-    
-    ASSERT_EQUALS_FIXED(receive,expected,"fix_asin(1)");
+    fixed_t expected=fix_val(-1.57079633);
+    fixed_t v=fix_val(-1.0);
+    fixed_t receive=fix_asin(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+    hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_asin(-1.0)");
 }
 void fix_asin_test_3()
 {
-    fixed_t expected=0.0;
-    fixed_t receive=fix_asin(0.0);
-    ASSERT_EQUALS_FIXED(receive,expected,"fix_asin(0.0)");
+    fixed_t expected=fix_val(0.0);
+    fixed_t v=fix_val(0.0);
+    fixed_t receive=fix_asin(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+    hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_asin(0.0)");
 }
 
 //--------------------------------------------------------------------------------//
 
 void fix_rad_test()
 {
-    fixed_t expected=1.0472;
-    fixed_t receive=fix_rad(60);
-    ASSERT_EQUALS_FIXED(receive,expected,"fix_rad(60)");
+    fixed_t expected=fix_val(1.0472);
+    fixed_t v=fix_val(60);
+    fixed_t receive=fix_rad(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+     hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_rad(60)");
 }
 void fix_rad_test_2()
 {
-    fixed_t expected=1.5708;
-    fixed_t receive=fix_rad(90);
-    ASSERT_EQUALS_FIXED(receive,expected,"fix_rad(90)");
+    fixed_t expected=fix_val(1.570785);
+    fixed_t v=fix_val(90);
+    fixed_t receive=fix_rad(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+    hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_rad(90)");
+    printf("\n\n");
 }
 void fix_rad_test_3()
 {
-    fixed_t expected=1.39626;
-    fixed_t receive=fix_rad(80);
-    ASSERT_EQUALS_FIXED(receive,expected,"fix_rad(80)");
+    fixed_t expected=fix_val(1.39626);
+    fixed_t v=fix_val(80);
+    fixed_t receive=fix_rad(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+     hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_rad(80)");
+}
+
+void fix_rad_test_4()
+{
+    fixed_t expected=fix_val(6.283172);
+    fixed_t v=fix_val(360);
+    fixed_t receive=fix_rad(v);
+    printf("receive\n" );
+    fix_print(receive);
+    printf("\nexpected\n");
+    fix_print(expected);
+    hfunit_comp_vector(&receive,&expected,sizeof(fixed_t),"fix_rad(360)");
+    
 }

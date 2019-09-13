@@ -11,7 +11,10 @@ int8_t *strchr(const int8_t *s, int32_t c);
 void strcmp1_test();
 void strcmp2_test();
 void strcmp3_test();
+//-------------------------------------//
 void strchr_test();
+void strchr_test2();
+void strchr_test3();
 
 
 
@@ -21,55 +24,53 @@ void hfunit_run_tests(){
     strcmp2_test();
     strcmp3_test();
     strchr_test();   
+	strchr_test();
+	strchr_test2();
+    strchr_test3();
 	
 }
 
 
 void strcmp1_test(){
-	/*int32_t strncmp(int8_t *s1, int8_t *s2, int32_t n){
-	while (--n >= 0 && *s1 == *s2++)
-		if (*s1++ == '\0')
-			return(0);
-
-	return(n<0 ? 0 : *s1 - *--s2);
-}*/
-    char  v[3] = "abc", v2[3] = "abd";
-	//int32_t strcmp(v,v2);
+    char  v[] = "abc", v2[] = "abd";
     int expected = -1;
-	int result = strcmp(v,v2);
-	printf("%f\n",&result);
-	hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(v,v2)");
+    int result=strcmp(v,v2);
+	printf("%d\n",result);
+	hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(abc,abd)");
 }
 
 void strcmp2_test(){
-    char  v[2] = "OI", v2[2] = "OI";
-    //int32_t strcmp(v,v2);
+    char  v[] = "o", v2[] = "o";
     int expected = 0;
     int result = strcmp(v,v2);
-    hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(v,v2)");
+    hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(o,o)");
 }
 
 void strcmp3_test(){
-    char  v[3] = "abd", v2[3] = "abc";
-	//int32_t strcmp(v,v2);
+    char  v[] = "abd", v2[] = "abc";
     int expected = 1;
 	int result = strcmp(v,v2);
-	hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(v,v2)");
+	hfunit_comp_vector(&expected, &result, sizeof(int), "strcmp(abd,abc)");
 }
 
 void strchr_test(){
-	/*int8_t *strchr(const int8_t *s, int32_t c){
-	while (*s != (int8_t)c)
-		if (!*s++)
-			return 0;
-
-	return (int8_t *)s;
-}*/
      char  v[] = "My name is Ayush";
     
-     int expected = 5;
+     int expected = 3;
      char result = strchr(v,'a');
-     //sprintf("%d\n", &expected);
-     //sprintf("%c\n", &result);
-     hfunit_comp_vector(&expected, &result, sizeof(int8_t), "strchr(v,'a')");
+     hfunit_comp_vector(expected, result, sizeof(int8_t), "strchr(v,'a')");
+ }
+ void strchr_test2(){
+     char  v[] = "My name is Ayush";
+    
+     int expected = 2;
+     char result = strchr(v,'m');
+     hfunit_comp_vector(expected, result, sizeof(int8_t), "strchr(v,'M')");
+ }
+ void strchr_test3(){
+     char  v[] = "My name is Ayush";
+    
+     int expected = 3;
+     char result = strchr(v,'is');
+     hfunit_comp_vector(expected, result, sizeof(int8_t), "strchr(v,'n')");
  }

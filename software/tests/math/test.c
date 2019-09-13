@@ -1,4 +1,4 @@
-include <hf-risc.h>
+#include <hf-risc.h>
 #include <hf-unit.h>
 #include <math.h>
 #define PI      3.1415926535897932384626433f
@@ -7,6 +7,10 @@ include <hf-risc.h>
 #define PI2     (PI * 2.0f)
 #define ONE_PI      (1.0f / PI)
 #define TWO_PI      (2.0f / PI)
+
+
+
+
 
 // function under test 
 float pow(float arg1,float arg2);
@@ -41,22 +45,22 @@ void hfunit_run_tests(){
     pow7_test();
     pow9_test();
 
- pow4_test();
- pow6_test();
- pow8_test();
- tan1();
- tan2();
- tan3();
- tan4();
+    pow4_test();
+    pow6_test();
+    pow8_test();
+    tan1();
+    tan2();
+    tan3();
+    tan4();
 
     
 }
 
 // place here a nice description for each test
 void pow1_test(){
-    // float v = pow(2.0,127.0);
-    // loat expected = 3.4028234664 × 1038;
-    // hfunit_comp_float(v,expected, "pow(2.5,2,5)");
+     float v = pow(2.0,127.0);
+     float expected = 256.00000001;
+    hfunit_comp_float(v,expected, "pow(2.5,2,5)");
 }
 void pow2_test()
 {
