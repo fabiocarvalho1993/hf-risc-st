@@ -80,3 +80,35 @@ void ASSERT_EQUALS_FIXED(int arg,int arg2,char* message)
     	
     }
 }
+void ASSERT_EQUALS(int arg,char* message)
+{
+    test_counter++;
+    executed_tests++;
+    if(arg==0)
+    {
+        
+        failed_tests++;
+        HFUNIT_MSG_FAIL(message)
+    }
+     else 
+     {
+        
+         HFUNIT_MSG_PASS(message)
+        
+     }
+}
+
+void ASSERT_EQUALS_FLOAT(float result,float expected,float epsilon,const char * message)
+{
+        test_counter++;
+        executed_tests++;
+        if(expected>(result-epsilon)&&(result+epsilon))
+        {
+            HFUNIT_MSG_PASS(message);
+        }
+        else
+        {
+            failed_tests++;
+            HFUNIT_MSG_FAIL(message);
+        }
+}
