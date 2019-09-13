@@ -5,7 +5,6 @@
  */
 
 #include <hf-risc.h>
-
 /*
 auxiliary routines
 */
