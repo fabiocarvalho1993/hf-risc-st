@@ -107,16 +107,16 @@ M3 = set_values(4, 4, val3);
 //print_matrix(M2);
 //printf("Sum of Matrix 1 and 2 is:\n");
 //M5 = subtraction(M2, M1);
-//MI = Invert(M5);
+MI = Invert(M2);
 //MT = transposed(M5);
-//mulI= multiplication(M5,MI);
+mulI= multiplication(M2,MI);
 //mulT= blkdiag2(M5,MT);
-//print_matrix(M5);
-//print_matrix(MI);
-//print_matrix(mulI);
+print_matrix(M2);
+print_matrix(MI);
+print_matrix(mulI);
 //print_matrix(MT);
 //print_matrix(mulT);
-//hfunit_comp_vector(&M3,&M5,sizeof(typ_var),"subtraction(M1,M1)");
+hfunit_comp_vector(&mulI,&M2,sizeof(typ_var),"subtraction(M1,M1)");
 
 }
 
@@ -140,9 +140,9 @@ M3 = set_values(4, 4, val3);
 //printf("Matrix 2 is:\n");
 //print_matrix(M2);
 //printf("Sum of Matrix 1 and 2 is:\n");
-M5 = subtraction(M2, M1);
-print_matrix(M5);
-print_matrix(M3);
+M5 = subtraction(M1, M2);
+//print_matrix(M5);
+//print_matrix(M3);
 hfunit_comp_vector(&M3,&M5,sizeof(int),"subtraction(M2,M1)");
 
 }
