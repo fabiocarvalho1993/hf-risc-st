@@ -7,11 +7,13 @@
 
 #include <hf-risc.h>
 
+
 // =======================
 // global counters
 // =======================
 extern int failed_tests;
 extern int test_counter;
+extern int executed_tests;
 
 
 // =======================
@@ -43,6 +45,7 @@ void printBits(size_t const size, void const * const ptr);
 // =======================
 // comparison functions
 // =======================
+void ASSERT_EQUALS_FIXED(int arg,int arg2,char* message);
 
 // compare int/char/short vectors. do not use this for vector of float or double. it wont work !
 int hfunit_comp_vector(void *v1,void *v2, int size, char* message);
