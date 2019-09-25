@@ -1,2 +1,4 @@
 language: c
-script: make test
+script: 
+-hf-risc-st/software/tests/fixed
+-make test
