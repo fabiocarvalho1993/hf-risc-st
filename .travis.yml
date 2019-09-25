@@ -1,15 +1,7 @@
 dist: trusty
 sudo: false
-language: c
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-6 
-
+language: cpp
+  
 script:
-  -  cd hf-risc-st/software/tests/fixed
-  - make test
-
+  - cmake .
+  - cmake --build .
