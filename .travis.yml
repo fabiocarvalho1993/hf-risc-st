@@ -5,7 +5,7 @@ before_install:
  - sudo apt-get update -qq
 
 script:
- - gcc -o tools/sim/hf_riscv_sim/hf_riscv_sim.c tools/sim/hf_riscv_sim/hf_riscv_sim
+ - gcc -o /tools/sim/hf_risc_sim/hf_risc_sim.c tools/sim/hf_riscv_sim/hf_riscv_si
  - tools/sim/hf_riscv_sim/hf_riscv_sim
  - cd /hf-risc-st/software/tests/fixed
  - make test
