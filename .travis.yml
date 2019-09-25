@@ -10,6 +10,6 @@ addons:
       - g++-6 
 
 script:
-  - /hf-risc-st/software/test/fixed
+  -  cd hf-risc-st/software/tests/fixed
   - make test
 
