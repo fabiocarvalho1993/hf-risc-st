@@ -16,5 +16,5 @@ env:
   - CARGS="--disable-linux  --disable-multilib --with-arch=rv64imafdc --with-abi=lp64d"
 install: true
 script:  
--hf-risc-st/software/tests/fixed
+-/hf-risc-st/software/tests/fixed/
 -make test
