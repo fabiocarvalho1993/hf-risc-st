@@ -15,6 +15,7 @@ fix_rad(v[360])      6.283172           6.283172  PASSED*/
 #include <hf-risc.h>
 #include <hf-unit.h>
 #include <fixed.h>
+
 extern int failed_tests;
 extern int executed_tests;
 
