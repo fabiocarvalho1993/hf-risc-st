@@ -1,15 +1,22 @@
-language: c
-sudo: true
+sudo: false
+language: C
+compiler:
+  - gcc
 
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-precise-3.8
+    packages:
+    - g++-6
+   
+install:
+- "[ $CXX = g++ ] && export CXX=g++-6 || true"
 
 script:
- -  
- - cd /hf-risc-st/software/tests/fixed
- - make test
-
-
-after_success:
- - echo "Success"
-
-after_failure:
- - echo "Fail"
+- cd tools
+- gcc -o hf_riscv_sim.c hf_riscv_sim
+- cd ..
+- cd software/tests/lib/strchr
+- make test
