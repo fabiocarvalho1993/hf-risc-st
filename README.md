@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/fabiokopezinski/hf-risc-st.svg?branch=master)](https://travis-ci.org/fabiokopezinski/hf-risc-st)
 
 # HF-RISC SoC
 
